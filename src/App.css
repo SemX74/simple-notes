@@ -32,8 +32,7 @@
   background: #fff;
   border-radius: 20px;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.229);
-
-  overflow: scroll;
+  overflow: visible;
 
 }
 
@@ -89,16 +88,100 @@
   
 }
 .note_title{
+  font-size: 2.5em;
   border-bottom: 2px solid gray;
   padding-bottom: .2em;
 }
 .note_title span{
   color: rgba(128, 128, 128, 0.344);
   margin-right: .2em;
+  font-size: .6em;
 }
 .note_info{
-
+ font-size: 1.6em;
 }
 .note_date{
   color: gray;
+  font-style: italic;
+}
+.note_btnwrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.note_edit{
+  margin-left: auto;
+  font-size: 1.4em;
+  padding-right: .3em;
+  background: transparent;
+  border: transparent;
+  text-decoration: underline;
+}
+.note_delete{
+  font-size: 1.4em;
+  padding: .1em;
+  background: transparent;
+  border: transparent;
+  text-decoration: underline;
+}
+/* Add note */
+
+.note-add_title{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2em;
+  font-weight: 500;
+  outline: none;
+  width: 100%;
+  border: transparent;
+  border-bottom: .1em solid orange;
+
+  transition: 0.1s;
+  
+}
+.note-add_title:focus{
+  font-size: 2.2em;
+  border-bottom: .15em solid orange;
+}
+.note-add_info{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.4em;
+  font-weight: 500;
+  outline: none;
+  width: 100%;
+  border: transparent;
+  border-bottom: .1em solid orange;
+  resize: none;
+  transition: 0.1s;
+  width: 100%;
+}
+.note-add_info:focus{
+  font-size: 1.8em;
+  border-bottom: .15em solid orange;
+}
+.note-add_btnwrapper{
+  margin: auto;
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+.note-add_goBack{
+  background: rgb(118, 212, 106);
+  border: transparent;
+  border-radius: 20px;
+  font-size: 1em;
+  padding: .5em;
+  transition: 0.2s;
+}
+.note-add_goBack:hover{
+  transform: scale(1.1);
+}
+.note-add_delete{
+  background: rgb(236, 135, 135);
+  border: transparent;
+  border-radius: 20px;
+  font-size: 1em;
+  padding: .5em;
+  transition: 0.2s;
+}
+.note-add_delete:hover{
+  transform: scale(1.1);
 }

@@ -31,17 +31,20 @@
 
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.229);
-  overflow: visible;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.229); 
+  overflow: scroll;
 
+}
+.app-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 /* Buttons */
 .note_add{
-  top: 70%;
-  left:62%;
-  position: fixed;
-  background: orange;
+  top: 76%;
+  left:48vw;
+  position: absolute;
+  background: rgb(242, 200, 121);
   color: #fff;
   font-weight: 500;
   font-size: 3em;
@@ -56,24 +59,25 @@
   position: absolute;
   display: block;
   content: '';
-  top: .3em;
+  top: .34em;
   left: .7em;
   width: .1em;
-  height: .9em;
+  height: .85em;
   background: #fff;
 }
 .note_add::after{
+  content: "*add note here";
   position: absolute;
   display: block;
   content: '';
   top: .7em;
-  left: .35em;
+  left: .33em;
   height: .1em;
   width: .8em;
   background: #fff;
 }
 .note_add:hover{
-  background: rgb(244, 159, 0);
+  background: rgb(166, 198, 99);
   transform: rotate(90deg);
   content: '+';
 }

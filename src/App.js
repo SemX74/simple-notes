@@ -1,16 +1,21 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import { AllNotes } from './components/AllNotes';
 import { AddNote } from './components/AddNote';
+import Switch from "react-switch";
 import './App.css';
 
 
 const App = () => {
+  // Theme switcher
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () =>{
+    setTheme((prev) => prev === 'light' ? 'dark' : 'light')
+  }
 
-  const [isAdding, setIsAdding] = useState(false); // what is the page
-  const [isChanging, setIsChanging] = useState(false); // is Changing
+  const [isAdding, setIsAdding] = useState(false); // what`s the page
   
   const [titleValue, setTitleValue] = useState(''); // value of titleInput
-  const handleTitle = ({target}) => setTitleValue(target.value)
+  const handleTitle = ({target}) => setTitleValue(target.value);
   
   const [infoValue, setInfoValue] = useState(''); // value of textInput
   const handleInfo = ({target}) => setInfoValue(target.value);
@@ -49,31 +54,34 @@ const App = () => {
     setInfoValue(editNote.info)
     notes.splice(ID); // deleting element
     setIsAdding(() => true) // opens adding menu
-    //this works cuz when u exit adding menu the note saves as new by default
+    //when you exit adding menu the note saves as new by default(watch line 30)
   }
-  return (
-  <div className='background'>
-    <h1 className='title'>Simple Notes!</h1>
-    <div className='app-wrapper'>
-      {isAdding && 
-       <AddNote 
-       handleTitle={handleTitle}
-       titleValue={titleValue}
-       handleInfo={handleInfo}
-       infoValue={infoValue}
-       setIsAdding={setIsAdding}
-       handleAdd={handleAdd}
-       error={error}/>}
+  return(
+    <div className='background' id={theme}>
+      <h1 className='title'>Simple Notes!</h1>
+      <label>{theme} theme</label>
+      <Switch className='switch' onChange={toggleTheme} checked={theme==='dark'}/>
+      <div className='app-wrapper'>
+        {isAdding && 
+        <AddNote 
+        handleTitle={handleTitle}
+        titleValue={titleValue}
+        handleInfo={handleInfo}
+        infoValue={infoValue}
+        setIsAdding={setIsAdding}
+        handleAdd={handleAdd}
+        error={error}/>}  
 
-       {!isAdding &&<AllNotes
-       IfEmpty={IfEmpty}
-       notes={notes}
-       handleAdd={handleAdd}
-       setIsAdding={setIsAdding}
-       handleDelete={handleDelete}
-       handleEdit={handleEdit}/>}
+        {!isAdding &&<AllNotes
+        IfEmpty={IfEmpty}
+        notes={notes}
+        handleAdd={handleAdd}
+        setIsAdding={setIsAdding}
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}/>}
+      </div>
     </div>
-  </div>  );
+  )  ;
 }
  
 export {App};

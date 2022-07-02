@@ -4,24 +4,40 @@
   box-sizing: border-box;
 }
 
+#light{
+  color: black;
+}
+#dark{
+  color: #fff;
+}
+
 
 .background{
+  flex-direction:column; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh;
-
-  background: #ffc657;
-
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
+#light.background {
+  background: #ffe0a2;
+}
+#dark.background {
+  background: rgb(50, 23, 50);
+}
 .title{
-  position: absolute;
-  top: .6vh;
+  margin-bottom: .2em;
   font-size: 6em;
-  color: #fff;
+  color: #000;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.486);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#dark .title {
+  color: #fff;
+}
+.switch{
+  margin-bottom: 1.8em;
 }
 .app-wrapper{
   width: 40em;
@@ -35,6 +51,10 @@
   overflow: scroll;
 
 }
+#dark .app-wrapper {
+  background: rgb(131, 64, 131);
+}
+
 .app-wrapper::-webkit-scrollbar {
   display: none;
 }
@@ -44,7 +64,6 @@
   top: 76%;
   left:48vw;
   position: absolute;
-  background: rgb(242, 200, 121);
   color: #fff;
   font-weight: 500;
   font-size: 3em;
@@ -76,10 +95,21 @@
   width: .8em;
   background: #fff;
 }
-.note_add:hover{
+#light .note_add:hover{
   background: rgb(166, 198, 99);
   transform: rotate(90deg);
   content: '+';
+}
+#dark .note_add:hover{
+  transform: rotate(90deg);
+  content: '+';
+  background: rgb(78, 133, 155);
+}
+#light .note_add {
+  background: rgb(242, 200, 121);
+}
+#dark .note_add {
+  background: rgb(123, 146, 74);
 }
 /* Single note */
 .note{
@@ -97,10 +127,14 @@
   padding-bottom: .2em;
 }
 .note_title span{
-  color: rgba(128, 128, 128, 0.344);
   margin-right: .2em;
   font-size: .6em;
+   color: rgba(128, 128, 128, 0.344);
 }
+#dark .note_title span{
+  color: rgba(255, 255, 255, 0.344);
+}
+
 .note_info{
  font-size: 1.6em;
 }
@@ -108,6 +142,10 @@
   color: gray;
   font-style: italic;
 }
+#dark .note_date{
+  color: rgb(212, 212, 212);
+}
+
 .note_btnwrapper{
   display: flex;
   justify-content: space-between;
@@ -127,6 +165,9 @@
   border: transparent;
   text-decoration: underline;
 }
+#dark .note_delete,#dark .note_edit{
+  color: white;
+}
 /* Add note */
 
 .note-add_title{
@@ -136,14 +177,25 @@
   outline: none;
   width: 100%;
   border: transparent;
-  border-bottom: .1em solid orange;
-
   transition: 0.1s;
-  
 }
+#dark .note-add_title{
+  color: #fff;
+  background: transparent;
+  border-bottom: .1em solid rgb(109, 166, 108);
+}
+#light .note-add_title{
+  color: #000;
+  border-bottom: .1em solid orange;
+}
+
 .note-add_title:focus{
+  background: transparent;
   font-size: 2.2em;
   border-bottom: .15em solid orange;
+}
+#dark .note-add_title:focus{
+  border-bottom: .15em solid rgb(109, 166, 108);
 }
 .note-add_info{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -152,39 +204,45 @@
   outline: none;
   width: 100%;
   border: transparent;
-  border-bottom: .1em solid orange;
   resize: none;
   transition: 0.1s;
   width: 100%;
 }
-.note-add_info:focus{
+#dark .note-add_info{
+  background: transparent;
+  color: #fff;
+  border-bottom: .1em solid rgb(109, 166, 108);
+}
+#light .note-add_info{
+  background: transparent;
+  color: #000;
+  border-bottom: .1em solid orange;
+}
+
+#dark .note-add_info:focus{
+  font-size: 1.8em;
+  border-bottom: .15em solid rgb(109, 166, 108);
+}
+#light .note-add_info:focus{
   font-size: 1.8em;
   border-bottom: .15em solid orange;
 }
 .note-add_btnwrapper{
   margin: auto;
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
 }
 .note-add_goBack{
-  background: rgb(118, 212, 106);
+  background: rgb(166, 198, 99);
   border: transparent;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 1em;
   padding: .5em;
   transition: 0.2s;
 }
 .note-add_goBack:hover{
   transform: scale(1.1);
-}
-.note-add_delete{
-  background: rgb(236, 135, 135);
-  border: transparent;
-  border-radius: 20px;
-  font-size: 1em;
-  padding: .5em;
-  transition: 0.2s;
 }
 .note-add_delete:hover{
   transform: scale(1.1);
